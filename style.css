@@ -88,7 +88,7 @@ html {
 /*字体设置*/
 @font-face{
 	font-family: 'wordtype';
-	src:url('./wordtype.otf');
+	src:url('./fonts/wordtype.otf');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -97,7 +97,7 @@ html {
 	background-color: #25adff;
 	overflow: hidden;
 	position: relative;
-	background-image: url("pic/tech_back.png");
+	background-image: url("./pic/tech_back.png");
 	background-size: cover;
 	font-family: 'wordtype';
 }
@@ -391,5 +391,6 @@ html {
 .morething p a{
 	text-decoration: none;
 	font-family: 'wordtype';
+	display: block;
 }
 #num{font-size: 1.5rem}
