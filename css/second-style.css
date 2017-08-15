@@ -167,7 +167,7 @@
     position: absolute;    
 }
 #newmedia-o .icon img:nth-child(1){
-    left: 50%; top: 50%;
+    left: 70%; top: 50%;
     height: 8.8rem;
     -webkit-transform:translate(-4.4rem, -1.8rem); /* Safari 和 Chrome */
 }
@@ -175,9 +175,9 @@
 #newmedia-o .icon #newmedia-o-img1 img:nth-child(3){ height: 2.4rem; }
 #newmedia-o .icon span{
     position: absolute;
-    color: white !important;
+    color: black !important;
 }
-#newmedia-o .icon #newmedia-o-img2 span:nth-child(1){ font-size: 2rem; }
+#newmedia-o .icon #newmedia-o-img2 span:nth-child(1){ font-size: 2rem;   }
 #newmedia-o .icon #newmedia-o-img2 span:nth-child(2){ font-size: 1.9rem; }
 #newmedia-o .icon #newmedia-o-img2 span:nth-child(3){ font-size: 1.8rem; }
 #newmedia-o .icon #newmedia-o-img2 span:nth-child(4){ font-size: 1.7rem; }
@@ -311,7 +311,7 @@
     -webkit-transform:translate(3.3em, -3.6em) rotate(130deg); /* Safari 和 Chrome */
 }
 
-/*前端美工组*/
+/*前端组*/
 #frontend-and-art-o>.content-J{
     background-size: cover;
 }
@@ -327,7 +327,29 @@
     width: 3.2em;
     position: absolute;
 }
-
+/*美工组*/
+#art-o>.content-J{
+    background-size: cover;
+}
+#art-o .more{
+    -webkit-transform:translateX(-8rem); 
+}
+.content-J .form{
+    -webkit-transform:translateX(2rem); 
+    /*background-color: rgba(0, 0, 0, 0.3);*/
+}
+#art-o .icon #frontend-plane{
+    width: 8em;
+    position: absolute;
+}
+#art-o .icon #frontend-css, #art-o .icon #frontend-js, #art-o .icon #frontend-ai{
+    width: 2.8em;
+    position: absolute;
+}
+#art-o .icon #frontend-ps{
+    width: 3.2em;
+    position: absolute;
+}
 /*后台app组*/
 #backapp-o>.content-J{
     background-size: cover;
@@ -716,7 +738,82 @@
     margin-top: 7px;
     opacity: 0;
 }
-
+/*美工*/
+#art{
+    width: 100%;
+    height: 100%;
+}
+#art .content{
+    width: 100%;
+    height: 100%;
+}
+#art img{
+    display: block;
+    max-width: 950px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+#motuname,#monaname{
+    left: 14%;
+    top: 12%;
+    color: #83685d;
+    z-index: 10;
+    position: absolute;
+    font-size: 16px;
+    opacity: 1;
+}
+#art #motuname{
+    opacity: 0;
+}
+#art #mona{
+    width: 67%;
+    height:53%;
+    top: 20%;
+    left: 16%;
+    opacity: 1;
+    box-shadow: 3px 3px #888888;
+}
+#art #motu{
+    width: 67%;
+    height:53%;
+    top: 20%;
+    left:16%;
+    opacity: 0;
+    box-shadow: 3px 3px #888888;
+}
+#art #rabbit{
+    width: 80%;
+    height: auto;
+    bottom: 20px;
+    left: 0%;
+}
+#art #speak{
+    width: 30%;
+    height: auto;
+    left: 40%;
+    bottom: 100px;
+    z-index: 10;
+}
+#art #screen{
+    position: relative;
+    width: 1px;
+    height: auto;
+    margin: 0 auto;
+    padding: 10% 0 6% 0;
+}
+#art .qianduanword{
+    text-align: center;
+    width: 60%;
+    left: 20%;
+    color: #150500;
+    position: absolute;
+    font-size: 18px;
+}
+#art .qianduanword p{
+    margin-top: 7px;
+    opacity: 0;
+}
 /*app*/
 #backapp{
     width: 100%;

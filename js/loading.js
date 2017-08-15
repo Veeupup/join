@@ -105,74 +105,74 @@ var indfuc = function(str){
     TimeLine.add(Tweene.get(ind).to({translateY: 0.5*fontSize}).duration(400).loops(-1).yoyo(true).easing([0, 0, 1, 1]), "-=50");
     return TimeLine;
 }
-// 第一页动效
-var first_t1 = Tweene.line();  
-$(document).ready(function(){
-    var first_img = $("#firstPage img")
-    // 第一句第二句放大旋转
-    var first_str = ["1000", "1000", "+=500", "-=300"];
-    var first_stro = 0;
-    for(var first_i=0; first_i<2; first_i++){       
-        first_t1.add(FangDaChuXianfuc(first_img[first_i], 300), first_str[first_stro]);
-        first_stro++;
-        first_t1.add(Tweene.get(first_img[first_i]).to({rotation: '360', transformOrigin: '50% 50%'}).easing([0, 0, 1, 1]) .duration(300), first_str[first_stro]);
-        first_stro++;
-    }
-    // 第三句缩小
-    first_t1.add(Tweene.get(first_img[2]).set({scale: 2.8}), "+=800");
-    first_t1.add(fadeIn(first_img[2], 100));
-    first_t1.add(Tweene.get(first_img[2]).to({scale: 1}).duration(500));
-    // 第四五六句淡出
-    for(first_i=3; first_i<6; first_i++){
-        first_t1.add(fadeIn(first_img[first_i], 1000));
-    }
-    first_t1.add(indfuc("#firstPage"));
-});
+// // 第一页动效
+// var first_t1 = Tweene.line();  
+// $(document).ready(function(){
+//     var first_img = $("#firstPage img")
+//     // 第一句第二句放大旋转
+//     var first_str = ["1000", "1000", "+=500", "-=300"];
+//     var first_stro = 0;
+//     for(var first_i=0; first_i<2; first_i++){       
+//         first_t1.add(FangDaChuXianfuc(first_img[first_i], 300), first_str[first_stro]);
+//         first_stro++;
+//         first_t1.add(Tweene.get(first_img[first_i]).to({rotation: '360', transformOrigin: '50% 50%'}).easing([0, 0, 1, 1]) .duration(300), first_str[first_stro]);
+//         first_stro++;
+//     }
+//     // 第三句缩小
+//     first_t1.add(Tweene.get(first_img[2]).set({scale: 2.8}), "+=800");
+//     first_t1.add(fadeIn(first_img[2], 100));
+//     first_t1.add(Tweene.get(first_img[2]).to({scale: 1}).duration(500));
+//     // 第四五六句淡出
+//     for(first_i=3; first_i<6; first_i++){
+//         first_t1.add(fadeIn(first_img[first_i], 1000));
+//     }
+//     first_t1.add(indfuc("#firstPage"));
+// });
 // 加载页动效
-// 百分比变化
-var load_per = 0;
-var load_cartoon1;
-var load_number = $("#loading-cover #load-ball span")
-load_cartoon1 = setInterval(function(){
-    load_per++;
-    if(load_per >= 99){
-        clearInterval(load_cartoon1);
-    }
-    load_number.text(load_per + "％");
-}, 30); 
-var load_t1 = Tweene.line(); 
-var load_img = $("#loading-cover #load-ball img");
-var load_div = $("#loading-cover #load-ball div");
-// 水上涨
-load_t1.add(Tweene.get(load_div).to({translateY: -10*fontSize}).duration(3000).easing([0, 0, 1, 1]), '0');
-load_t1.add(Tweene.get(load_img[0]).to({translateY: -10*fontSize}).duration(3000).easing([0, 0, 1, 1]), '0');
-load_t1.add(Tweene.get(load_img[1]).to({translateY: -10*fontSize}).duration(3000).easing([0, 0, 1, 1]), '0');
-// 波浪起伏
-load_t1.add(Tweene.get(load_img[1]).to({translateX: -15*fontSize}).loops(-1).yoyo(true).duration(1200).easing([0, 0, 1, 1]), '0');
-// 船摇动
-load_t1.add(Tweene.get(load_img[0]).to({rotation: -10}).loops(-1).yoyo(true).duration(500).easing([0, 0, 1, 1]), '0');
-// 字跳动
-load_t1.add(Tweene.get($("#loading-cover p")).to({scale: 0.9}).loops(-1).yoyo(true).duration(400).easing([0, 0, 1, 1]), '0');
-load_t1.play();
-// 全部加载完成后加载页消失
-$(window).load(function(){
-    // 检索加载动画是否完成
-    var load_cartoon2 = setInterval(function(){
-        var load_arr = load_div.css("-webkit-transform").split('(')[1].split(')')[0].split(',');
-        if(load_arr[5] <= -9.95*fontSize || load_number.text() == "99％"){ 
-            // 完成加载动画最后一部分   
-            var load_t2 = Tweene.line();
-            load_t1.add(Tweene.get(load_div).to({translateY: -12*fontSize}).duration(100).easing([0, 0, 1, 1]), '0');
-            load_t1.add(Tweene.get(load_img[0]).to({translateY: -12*fontSize}).duration(100).easing([0, 0, 1, 1]), '0');
-            load_t1.add(Tweene.get(load_img[1]).to({translateY: -12*fontSize}).duration(100).easing([0, 0, 1, 1]), '0');
-            load_number.text("100％");
-            // 加载页消失
-            load_t2.add(fadeOut($("#loading-cover"),500));
-            load_t2.play();
-            // 循环动画停止，第一页动画开始
-            load_t1.pause();
-            clearInterval(load_cartoon2);
-            first_t1.play();
-        }
-    }, 50);
-});
+// // 百分比变化
+// var load_per = 0;
+// var load_cartoon1;
+// var load_number = $("#loading-cover #load-ball span")
+// load_cartoon1 = setInterval(function(){
+//     load_per++;
+//     if(load_per >= 99){
+//         clearInterval(load_cartoon1);
+//     }
+//     load_number.text(load_per + "％");
+// }, 30); 
+// var load_t1 = Tweene.line(); 
+// var load_img = $("#loading-cover #load-ball img");
+// var load_div = $("#loading-cover #load-ball div");
+// // 水上涨
+// load_t1.add(Tweene.get(load_div).to({translateY: -10*fontSize}).duration(3000).easing([0, 0, 1, 1]), '0');
+// load_t1.add(Tweene.get(load_img[0]).to({translateY: -10*fontSize}).duration(3000).easing([0, 0, 1, 1]), '0');
+// load_t1.add(Tweene.get(load_img[1]).to({translateY: -10*fontSize}).duration(3000).easing([0, 0, 1, 1]), '0');
+// // 波浪起伏
+// load_t1.add(Tweene.get(load_img[1]).to({translateX: -15*fontSize}).loops(-1).yoyo(true).duration(1200).easing([0, 0, 1, 1]), '0');
+// // 船摇动
+// load_t1.add(Tweene.get(load_img[0]).to({rotation: -10}).loops(-1).yoyo(true).duration(500).easing([0, 0, 1, 1]), '0');
+// // 字跳动
+// load_t1.add(Tweene.get($("#loading-cover p")).to({scale: 0.9}).loops(-1).yoyo(true).duration(400).easing([0, 0, 1, 1]), '0');
+// load_t1.play();
+// // 全部加载完成后加载页消失
+// $(window).load(function(){
+//     // 检索加载动画是否完成
+//     var load_cartoon2 = setInterval(function(){
+//         var load_arr = load_div.css("-webkit-transform").split('(')[1].split(')')[0].split(',');
+//         if(load_arr[5] <= -9.95*fontSize || load_number.text() == "99％"){ 
+//             // 完成加载动画最后一部分   
+//             var load_t2 = Tweene.line();
+//             load_t1.add(Tweene.get(load_div).to({translateY: -12*fontSize}).duration(100).easing([0, 0, 1, 1]), '0');
+//             load_t1.add(Tweene.get(load_img[0]).to({translateY: -12*fontSize}).duration(100).easing([0, 0, 1, 1]), '0');
+//             load_t1.add(Tweene.get(load_img[1]).to({translateY: -12*fontSize}).duration(100).easing([0, 0, 1, 1]), '0');
+//             load_number.text("100％");
+//             // 加载页消失
+//             load_t2.add(fadeOut($("#loading-cover"),500));
+//             load_t2.play();
+//             // 循环动画停止，第一页动画开始
+//             load_t1.pause();
+//             clearInterval(load_cartoon2);
+//             first_t1.play();
+//         }
+//     }, 50);
+;

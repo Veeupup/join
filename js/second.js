@@ -1,5 +1,3 @@
-// console.log("a");
-$(window).load(function(){
 	// 小星球动效
 	// id="manp"
 	$('.dDabumen img').width(cwidth*0.5).height(cwidth*0.5);
@@ -761,7 +759,8 @@ $(window).load(function(){
             var motu=$('#motu')
             var mona=$('#mona')
             var qianduanwidth=$('#frontend-and-art').width()
-            $(rabbit).click(function(){
+            $('#rabbit').click(function(){
+                alert("a");
                 qianduan_t1.add(startJfuc('#frontend-and-art'));
                 qianduan_t1.add(fadeOut('#speak',400),0);
                 qianduan_t1.add(fadeOut('#rabbit',400),0);
@@ -856,4 +855,3 @@ $(window).load(function(){
             });
 
 	
-});
