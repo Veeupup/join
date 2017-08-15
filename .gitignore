@@ -1,5 +1,4 @@
 .idea/*
-pic/*
 api/*.csv
 api/ip.php
 api/config.php
