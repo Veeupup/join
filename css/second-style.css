@@ -5,6 +5,7 @@
     color: #2deca6 !important; 
     font-weight: lighter !important; 
     font-size: 1rem;
+    z-index: 999;
 }
 /*小星球样式*/
 #tech,#info,#man,#techp a,#infop a,#manp a{ 
@@ -358,7 +359,15 @@
     height: 15em;
     position: absolute;
 }
-
+#app_back{
+    display: block;
+    position: absolute;
+    top: 1.5rem; left: 1.5rem;
+    color: #2deca6 !important; 
+    font-weight: lighter !important; 
+    font-size: 1rem;
+    z-index: 999;
+}
 /*后台web组*/
 #backend-o>.content-J{
     background-size: cover;

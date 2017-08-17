@@ -196,8 +196,7 @@ if (false == file_put_contents(DATA_FILE, iconv('utf-8', 'GBK//IGNORE', ob_get_c
 }
 fclose($f);
 // 未设置MAIL_SERVER即为不发送邮件
-//if (isset($MAIL_SERVER)) {
-if(1){
+if (isset($MAIL_SERVER)) {
     $maskedname = trim($name) . ' 同学';
     // 加载PHPMailer库
     require 'PHPMailer/class.phpmailer.php';
