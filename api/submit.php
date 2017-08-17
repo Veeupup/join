@@ -75,15 +75,15 @@ function I($name, $type, $filter)
 // 验证输入数据
 // 姓名：1-20个UTF-8字符
 // 性别：0女、1男
-// 出生日期：YYYY-mm-dd，出生年份必须在1986年-2006年之间，且日期必须真实存在
+// 出生日期：YYYY-mm-dd，出生年份必须在1987年-2007年之间，且日期必须真实存在
 // 籍贯：0-40个UTF-8字符
-// 书院；0彭康、1仲英、2南洋、3文治、4崇实、5宗濂、6励志、7启德
+// 书院:0彭康、1仲英、2南洋、3文治、4崇实、5宗濂、6励志、7启德、8钱学森
 // 专业班级：1-20个UTF-8字符
 // 手机：号段130、131、132、133、134、135、136、137、138、139、145、147、149、150、151、152、153、155、156、157、158、159、170、175、176、177、178、180、181、182、183、184、185、186、187、188、189
 // QQ号：5-11位数字，首位不为0
 // 邮箱：filter_var->checkdnsrr
-// 第一志愿：         1新闻部、2新媒体部、3影视部、4市场部、5公关部、6产品部、7app组、8web组、9前端美工组
-// 第二志愿：0(未选)、1新闻部、2新媒体部、3影视部、4市场部、5公关部、6产品部、7app组、8web组、9前端美工组，第二志愿必须与第一志愿不同
+// 第一志愿：         1新闻媒体部、2影视部、3市场部、4公关部、5产品组、6app组、7web前端组、8web后端组、9设计组
+// 第二志愿：0(未选)、1新闻媒体部、2影视部、3市场部、4公关部、5产品组、6app组、7web前端组、8web后端组、9设计组，第二志愿必须与第一志愿不同
 // 个人陈述：0-255个UTF-8字符
 $name = I('name', 's', '/^.{1,20}$/u');
 $gender = I('gender', 'd', '/^[01]$/');
@@ -95,7 +95,7 @@ $date = I('date', 's', function ($date) {
         exit('-3');
     }
     $year = (int)$matches[1];
-    if ($year < 1986 || $year > 2006) {
+    if ($year < 1987 || $year > 2007) {
         exit('-3');
     }
     if (!checkdate((int)$matches[2], (int)$matches[3], $year)) {
@@ -104,9 +104,9 @@ $date = I('date', 's', function ($date) {
     return $date;
 });
 $home = I('home', 's', '/^.{0,40}$/u');
-$college = I('college', 'd', '/^[0-7]$/');
+$college = I('college', 'd', '/^[0-8]$/');
 $class = I('class', 's', '/^.{1,20}$/u');
-$tel = I('tel', 's', '/^(1((3\d)|(4[579])|(5[012356789])|(7[05678])|(8\d))\d{8})$/');
+$tel = I('tel', 's', '/^(1((3\d)|(4[579])|(5[012356789])|(7[01235678])|(8\d))\d{8})$/');
 $qq = I('qq', 's', '/^[1-9]\d{4,10}$/');
 $mail = I('mail', 's', function ($mail) {
     if (!is_string($mail)) {
@@ -135,6 +135,36 @@ $first = $GROUP[$first];
 $second = $GROUP[$second];
 // 时间：YYYY-mm-dd HH:ii:ss
 $time = date('Y-m-d H:i:s');
+
+// 发给远程服务器
+// $ch = curl_init();
+// curl_setopt($ch, CURLOPT_URL, 'http://webgroup.eeyes.xyz/join/submit.php');
+// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+// curl_setopt($ch, CURLOPT_HEADER, false);
+// curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query(array(
+// 'timestamp' => $time,
+// 'ip' => $client_ip,
+// 'ip_location' => '',
+// 'name' => $name,
+// 'gender' => $gender,
+// 'date' => $date,
+// 'home' => $home,
+// 'college' => $college,
+// 'class' => $class,
+// 'tel' => $tel,
+// 'qq' => $qq,
+// 'mail' => $mail,
+// 'first' => $first,
+// 'second' => $second,
+// 'info' => $info,
+// )));
+// curl_setopt($ch, CURLOPT_POST, true);
+// curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+// $response = curl_exec($ch);
+// curl_close($ch);
+// if ('1' !== $response) {
+// exit('-4');
+// }
 
 // 将csv文件写入缓存
 ob_start();
@@ -166,7 +196,8 @@ if (false == file_put_contents(DATA_FILE, iconv('utf-8', 'GBK//IGNORE', ob_get_c
 }
 fclose($f);
 // 未设置MAIL_SERVER即为不发送邮件
-if (isset($MAIL_SERVER)) {
+//if (isset($MAIL_SERVER)) {
+if(1){
     $maskedname = trim($name) . ' 同学';
     // 加载PHPMailer库
     require 'PHPMailer/class.phpmailer.php';

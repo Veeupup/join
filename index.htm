@@ -149,6 +149,10 @@
             </aside>
         </div>
         <script type="text/javascript">
+        //设置每一部分的高度
+        var a = $(window).height() + "px";
+        $(".index-slide").css("height",a);
+        $("#s_six").css("height","36rem");
             // 部门介绍飞入
             //市场
         $("#public").addClass("jump01");
@@ -1856,7 +1860,7 @@
                                 <label for="sub-college">书院 COLLEGE</label>
                             </td>
                             <td>
-                                <input type="text" name="class" id="sub-class" placeholder="如:计算机61" />
+                                <input type="text" name="class" id="sub-class" placeholder="如:电信71" />
                                 <label for="sub-class">专业班级 CLASS</label>
                             </td>
                         </tr>
@@ -1894,9 +1898,10 @@
                                 <label for="sub-first">第一志愿 FIRST</label>
                             </td>
                             <td>
-                                <select name="second" id="sub-second">      
+                                <select name="second" id="sub-second">
+                                    <option value="0" selected>未选</option>      
                                     <option value="1">新闻媒体部</option>
-                                    <option value="2" selected>影视部</option>
+                                    <option value="2" >影视部</option>
                                     <option value="3">市场部</option>
                                     <option value="4">公关部</option>
                                     <option value="5">产品组</option>
@@ -2035,11 +2040,11 @@
             dateFormat: 'yy-mm-dd', // 日期提交格式
             setText: '确定',  // 确认按钮名称
             cancelText: null,  // 取消按钮名称
-            startYear: 1986,  //开始年份
-            endYear: 2006,  //结束年份
+            startYear: 1987,  //开始年份
+            endYear: 2007,  //结束年份
             rows: 3,
             animate: 'fade',  // 显示效果
-            defaultValue: new Date(1998, 0, 1), // 打开时的初始值，与其他工具出现冲突，未生效
+            defaultValue: new Date(1999, 0, 1), // 打开时的初始值，与其他工具出现冲突，未生效
             //自定义弹出框头部格式
             headerText: function (valueText) {   
                 array = valueText.split('-');  
@@ -2072,7 +2077,7 @@
                 return validate($('form input[name="name"]'), /^.{1,10}$/, "姓名：1-10个汉字/英文字母", strict)
                     + validate($('form input[name="home"]'), /^.{0,40}$/, "籍贯：0-40个汉字/英文字母", strict)
                     + validate($('form input[name="class"]'), /^.{1,20}$/, "专业班级：1-20个汉字/英文字母", strict)
-                    + validate($('form input[name="tel"]'), /^(1((3\d)|(4[579])|(5[012356789])|(7[05678])|(8\d))\d{8})$/, "手机号段不存在", strict)
+                    + validate($('form input[name="tel"]'), /^(1((3\d)|(4[579])|(5[012356789])|(7[01235678])|(8\d))\d{8})$/, "手机号段不存在", strict)
                     + validate($('form input[name="qq"]'), /^[1-9]\d{4,10}$/, "QQ号格式不正确", strict)
                     + validate($('form input[name="mail"]'), /^.+?@.+\..+?$/, "邮箱格式不正确", strict)
                     + validate($('form select[name="second"]'), {
@@ -2098,7 +2103,7 @@
             $('form>div').addClass("submitting").attr("disabled", true);
             var timeoutId = setTimeout(function () {
                 // 超时提示，然后恢复按钮
-                alert("连接超时\n请检查网络是否连接\n有问题可以加e瞳新生群552035254询问\n(也说不定是我们服务器出问题了)");
+                alert("连接超时\n请检查网络是否连接\n有问题可以加e瞳新生群657813400询问\n(也说不定是我们服务器出问题了)");
                 $('form>div').removeClass("submitting").attr("disabled", "");
             }, 10000);
             $.post($(this).attr("action"), $(this).serialize(), function (data) {
@@ -2107,9 +2112,9 @@
                 if (data === '-1') {
                     alert("获取IP失败");
                 } else if (data === '-2') {
-                    alert("同一IP多次提交\n有问题可以加e瞳新生群552035254询问\n(可能是我们后台web组的同学数据验证做得太狠，不小心误伤了)");
+                    alert("同一IP多次提交\n有问题可以加e瞳新生群657813400询问\n(可能是我们后台web组的同学数据验证做得太狠，不小心误伤了)");
                 } else if (data === '-3') {
-                    alert("数据不合理\n如果数据的确无误，可以请加e瞳新生群552035254询问\n(可能是我们后台web组的同学数据验证做得太狠，不小心误伤了)");
+                    alert("数据不合理\n如果数据的确无误，可以请加e瞳新生群657813400询问\n(可能是我们后台web组的同学数据验证做得太狠，不小心误伤了)");
                 } else if (data === '-4') {
                     alert("提交数据失败");
                 } else if (data === '-5') {
