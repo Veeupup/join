@@ -102,7 +102,7 @@
                 <div class="part-title" id="infor_part">信息部门</div>
                 <div class="part-list" id="list02">
                     <ul>
-                        <li id="new_media"><a href="#newmedia-o"><img src="pic/logo/new_media.png" alt="新媒体部"><p>新闻媒体部</p</a></li>
+                        <li id="new_media"><a href="#newmedia-o"><img src="pic/logo/new_media.png" alt="新闻媒体部"><p>新闻媒体部</p</a></li>
                         <li id="film"><a href="#movie-o"><img src="pic/logo/film.png" alt="影视部"><p>影视部</p></a></li>
                     </ul>
                 </div>
@@ -1091,12 +1091,14 @@
             myvideo.src = "./images/media/movie.mp4"
             }
             myvideo.play(); 
+            $('#hint').css("z-index",-1);
             });
     // 样式
                 $('#movie-total').css({width: cheight, height: cwidth}).addClass('movie-total-rotate').css({position: 'absolute', left: cwidth});
-                $('video').css({width: cheight*0.8, height: cwidth*0.8}).css({left: cwidth});
-                $('#movie-control').css({bottom: cheight*0.3});
+                $('video').css({width: cheight*0.70, height: cwidth*0.65}).css({left: cwidth*0.85,top:cheight*0.1});
+                $('#movie-control').css({top: cheight*0.15});
                 $('#movie-control-img').css({width: cheight*0.4498, height: cwidth*0.0933});
+
         </script>
     </div>
     <!-- 新媒体详情页 -->
@@ -1187,7 +1189,7 @@
     var toggle_control = true;
     $('#toggle-msc').on('click',function(){
         if(toggle_control){
-            $('#toggle-msc').attr("src", "./images/player/play.png");
+            $('#toggle-msc').attr("src", "./images/player/stop.png");
             var audio = document.getElementById("voice0");
             if (!audio.src) {
                 audio.src = "yali.mp3";
@@ -1196,7 +1198,7 @@
             lrc_t.resume();
             toggle_control = false;
         }else{
-            $('#toggle-msc').attr("src", "./images/player/stop.png");
+            $('#toggle-msc').attr("src", "./images/player/play.png");
             weChatPlay("voice0", toggle_control); 
             lrc_t.pause();
             toggle_control = true;

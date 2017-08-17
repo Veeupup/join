@@ -600,7 +600,9 @@
     -o-transform: rotate(90deg);        /* Opera */
     -o-transform-origin:0% 0%;      /* Opera */
 }
-
+#video1{
+    position: absolute;
+}
 /*新媒体部*/
 #newmedia{
     background-size: cover;
