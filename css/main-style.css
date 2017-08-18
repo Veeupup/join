@@ -11,7 +11,7 @@
     -moz-box-sizing:border-box; /* Firefox */
 	-webkit-box-sizing:border-box; /* Safari */
 
-	font-family: 黑体;
+	font-family: 微软雅黑;
 }
 html, body, #pagenav{
 	position: relative;
