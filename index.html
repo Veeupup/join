@@ -94,13 +94,13 @@
                         <li><a href="#backapp-o">App开发&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
                     </ul>
                 </div>
-                <img src="pic/join_1.png" class="back_pic" id="three_back">
+                <img src="pic/join_1.png" class="back_pic">
             </div>
             <!-- 第四页  -->
             <div class="index-slide" id="s_four">
                 <h1>设计师</h1>
                 <h2>追求用户体验的极致</h2>
-                <div class="part_list">
+                <div class="part_list" id="design_special">
                     <ul>
                         <li><a href="#art-o">视觉设计师&nbsp&nbsp&nbsp  <img src="pic/arrow.png"></a></li>
                         <li><a href="#product-o">产品设计师&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
@@ -112,7 +112,7 @@
             <div class="index-slide" id="s_five">
                 <h1>媒体人</h1>
                 <h2>掉入脑洞的艺术总是光芒万丈</h2>
-                <div class="part_list">
+                <div class="part_list" id="media_special">
                     <ul>
                         <li><a href="#newmedia-o">新闻媒体部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
                         <li><a href="#movie-o">影视部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
@@ -124,7 +124,7 @@
             <div class="index-slide" id="s_seven">
                 <h1>市场人</h1>
                 <h2>千方百计让你爱上我们的产品</h2>
-                <div class="part_list">
+                <div class="part_list" id="market_spcial">
                     <ul>
                         <li><a href="#market-o">市场部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
                         <li><a href="#publicrelation-o">公关部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
@@ -971,6 +971,7 @@
     </div>
     <!-- 公关部详情页 -->
     <div data-role="page" id="publicrelation">
+        <a href="#" data-rel="back" class="back">返回</a>
         <div class="content-X">
             <div>
                 <p>你想知道如何处理好<br>他人的委托需求吗</p>
@@ -1052,6 +1053,7 @@
     </div>
     <!-- 影视部详情页 -->
     <div data-role="page" id="movie">
+        <a href="#" data-rel="back" class="back">返回</a>
         <img src="./images/media/total.jpg" id="movie-total">
         <div class="contentJ">
             <video id="video1" preload="none">
@@ -1089,6 +1091,7 @@
     </div>
     <!-- 新媒体详情页 -->
     <div data-role="page" id="newmedia">
+        <a href="#" data-rel="back" class="back">返回</a>
         <audio id="voice0" src="yali.mp3" preload="none"></audio>
         <div id="newmedia_word">
             <img src="./images/player/detail.png">
@@ -1217,6 +1220,7 @@
     </div>
     <!-- 产品部详情页 -->
     <div data-role="page" id="product">
+        <a href="#" data-rel="back" class="back" id="chanpin_back">返回</a>
         <link rel="stylesheet" href="./css/index.css">
         <script type="text/javascript">
             $(document).ready(function(){
@@ -1246,7 +1250,7 @@
             <div class="loadIMG"></div>
         </div>
         <div class="page page1 hidden">
-            <audio class="tips" src="./images/message.mp3" preload="none"></audio>
+            <audio class="tips" src="./images/message.mp3" preload="none" id="tap_audio"></audio>
             <div class="content">
                 <div class="date">
                     <p class="time">00:35</p>
@@ -1263,7 +1267,7 @@
             <audio class="unlock" src="./images/unlock.mp3" preload="none"></audio>
         </div>
         <div class="page page2 hidden" id="wechat_bg">
-            <audio class="tips" src="./images/chanpinMore/message.mp3" preload="none"></audio>
+            <audio class="tips" src="./images/chanpinMore/message.mp3" preload="none" id="tips_audio"></audio>
             <div class="con">
                 <ul class="content clearfix">
                     <li class="clearfix msgleft">
@@ -1611,12 +1615,20 @@
                 $("a[href='#product']").on('click',function(){
                     $('#product img[remark]').attr('src',function(){return $(this).attr('remark')});
                 });
+                $("#chanpin_back").click(function(){
+                    alert("a");
+                    alert($('#tips_audio')[0].src);
+                    $('#tips_audio')[0].pause();
+                    // $('.page1 .unlock')[0].src = "";
+                    // $('.page1 .taps')[0].src = "";
+                });
             })
         </script>
     </div>
     <!--前端美工组详情页-->
     <div data-role="page" id="frontend-and-art">
         <div class="content">
+            <a href="#" data-rel="back" class="back">返回</a>
             <img  src="images/QianDuan/bg2.jpg">
             <img id="screen"  src="images/QianDuan/screen.png">
             <div class="qianduanword">
@@ -1666,6 +1678,7 @@
     <!-- 美工详情页 -->
     <div data-role="page" id="art">
         <div class="content">
+            <a href="#" data-rel="back" class="back">返回</a>
             <img  src="images/QianDuan/bg2.jpg">
             <img  src="images/QianDuan/bg.png">
             <div id="name"></div>
@@ -1720,6 +1733,7 @@
 
     <!--后台app详情页-->
     <div data-role="page" id="backapp">
+        <a href="#" data-rel="back" id="app_back">返回</a>
         <div class="content">
             <img  src="images/App/background.jpg">
             <div class="icon">
@@ -1738,13 +1752,14 @@
         </div>
         <a href="#" data-rel="back" class="back">返回</a>
         <script type="text/javascript">
-            var appwidth=$('#backapp').width()
-            var appheight=$('#backapp').height()
+            $("#app_back").css("display","block");
+            var appwidth=$('#backapp').width();
+            var appheight=$('#backapp').height();
             var backapp_t1 = Tweene.line();
             var backappufo = $('#backapp .icon #appufo');
-            var backapprobot = $('#backapp .icon #approbot')
-            var backapplight = $('#backapp .icon #applight')
-            var backappspeak = $('#backapp .icon #appspeak')
+            var backapprobot = $('#backapp .icon #approbot');
+            var backapplight = $('#backapp .icon #applight');
+            var backappspeak = $('#backapp .icon #appspeak');
             backapp_t1.add(startJfuc('#backapp'));
             backapp_t1.add(Tweene.get(backappufo)
                                  .to({left:0.35*appwidth})
@@ -2106,7 +2121,7 @@
                 } else if (data === '-4') {
                     alert("提交数据失败");
                 } else if (data === '-5') {
-                    alert("提交数据成功");
+                    alert("提交数据成功,发送邮件失败");
                 } else if (data === '1') {
                     alert("提交成功");
                 } else {

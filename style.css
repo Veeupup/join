@@ -15,6 +15,10 @@ html {
 	box-sizing: border-box;
 }
 /*具体介绍通用*/
+.part_list{
+	position: absolute;
+	z-index: 999;
+}
 .part_list ul{
 	width: 14rem;
 }
@@ -134,12 +138,10 @@ html {
 #s_three h2{
 	font-size: 2rem;
 	margin-bottom: 3rem;
-/* 	text-indent: 5px; */
 	font-weight: 400; 
 }
 #tech_special{
-	position: absolute;
-	z-index: 999;
+	background-color:  rgb(232,79,73);
 }
 /*设计产品*/
 #s_four{
@@ -159,6 +161,9 @@ html {
 	margin-bottom: 3rem;
 	text-indent: 5px;
 	font-weight: 400;
+}
+#design_special{
+	background-color:  #3c99d2;
 }
 /*信息部门*/
 #s_five{
@@ -183,6 +188,9 @@ html {
     bottom: 0;
     left: 0;
 }
+#media_special{
+	background-color:  #7f5597;
+}
 /*市场公关*/
 #s_seven{
 	background-color: #f1904b;
@@ -205,6 +213,9 @@ html {
     bottom: 0;
     left: 0;
 }
+#market_special{
+	background-color:  #f1904b;
+}
 /*第六页*/
 #s_six{
 	background-color: #e65248;
@@ -212,7 +223,6 @@ html {
 	box-sizing: border-box;
 	padding-top: 8rem;
 	padding-left: 2rem;
-
 }
 #s_six h1{
 	font-size: 3rem;
