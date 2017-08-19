@@ -28,7 +28,7 @@
     </script>
         
     <!-- 引入加载页样式 -->
-    <link rel="stylesheet" type="text/css" href="./css/loading.css">
+<!--     <link rel="stylesheet" type="text/css" href="./css/loading.css"> -->
 
     <!-- 引入页面自适应 -->
     <script type="text/javascript" src="./js/suit.js"></script>
@@ -46,6 +46,9 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> 
     <!-- <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.min.css"> -->
 
+        <!-- 引入swiper -->
+    <link rel="stylesheet" type="text/css" href="dest/css/swiper.min.css">
+    <script type="text/javascript" src="dest/js/swiper.min.js"></script>
     
     <!-- 引入一级页面样式 -->
     <link rel="stylesheet" type="text/css" href="./css/main-style.css">
@@ -53,39 +56,38 @@
     <!-- 引入一级其他页面动效等 -->
     <script type="text/javascript" src="./js/main.js"></script>
 
-    <link rel="stylesheet" href="./style.css">
-    <script src="./js/swiper-3.4.2.jquery.min.js"></script>
-    <!-- <script src="./jquery-3.2.0.min.js"></script> -->
-    <script src="./func.js"></script>
-
+    <!-- 一级页面 -->
+    <div class="animate"></div>  <!-- 流星背景 -->
     <!-- 一级页面 -->
     <div data-role="page" id="pagenav">
-        <div id="container">
-            <!-- 第一页 -->
-            <div class="index-slide" id="s_one">
-                <div id="back01">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- 第一页 -->
+                <div class="swiper-slide">
+                   <div id="back01">
                     <img src="pic/back01.png" alt="背景图" id="firstback">
                     <a href="#submit"><img src="pic/submit_pic.png" alt="报名链接" id="submit_pic"></a>
                     <img src="pic/planet1.png" alt="小星球" id="planet1">
                 </div>
                 <div class="sign"><a href="#submite"></a></div>
-            </div>
-            <!-- 第二页 -->
-            <div class="index-slide" id="s_two">
-                <div id="back02"></div>
-                <img src="pic/back02.png" alt="" id="back02-1">
-                <div class="slogan">
-                    <img src="pic/slogan1.png" alt="全交大最大的" id="slogan1">
-                    <img src="pic/slogan2.png" alt="互联网社团" id="slogan2">
                 </div>
-                <a href="https://xjtu.eeyes.net/"><img src="pic/qihang.png" alt="启航交大" class="display" id="qihang"></a>
-                <a href="http://eux.eeyes.net/"><img src="pic/EUX.png" alt="EUX" class="display" id="EUX"></a>
-                <a href="http://down.eeyes.net/"><img src="pic/exia.png" alt="e快下" class="display" id="exia"></a>
-                <a href="http://app.myouth.cn/Basic/Home.action?scl=b7b92d40-cdaa-4a5d-acf0-398b97fee884s"><img src="pic/yousi.png" alt="优思" class="display" id="yousi"></a>
-            </div>
-            <!-- 第三页  -->
-            <div class="index-slide" id="s_three">
-                <h1>技术控</h1>
+                <!-- 第二页 -->
+                <div class="swiper-slide" id="s_two">
+                    <div id="back02"></div>
+                    <img src="pic/back02.png" alt="" id="back02-1">
+                    <div class="slogan">
+                        <img src="pic/slogan1.png" alt="全交大最大的" id="slogan1">
+                        <img src="pic/slogan2.png" alt="互联网社团" id="slogan2">
+                    </div>
+                    <a href="https://xjtu.eeyes.net/"><img src="pic/qihang.png" alt="启航交大" class="display" id="qihang"></a>
+                    <a href="http://eux.eeyes.net/"><img src="pic/EUX.png" alt="EUX" class="display" id="EUX"></a>
+                    <a href="http://down.eeyes.net/"><img src="pic/exia.png" alt="e快下" class="display" id="exia"></a>
+                    <a href="http://app.myouth.cn/Basic/Home.action?scl=b7b92d40-cdaa-4a5d-acf0-398b97fee884s"><img src="pic/yousi.png" alt="优思" class="display" id="yousi"></a>
+                </div>
+
+                <!-- 第三页 -->
+                <div class="swiper-slide" id="s_three">
+                    <h1>技术控</h1>
                 <h2>代码有几种敲法？</h2>
                 <div class="part_list" id="tech_special">
                     <ul>
@@ -95,10 +97,11 @@
                     </ul>
                 </div>
                 <img src="pic/join_1.png" class="back_pic">
-            </div>
-            <!-- 第四页  -->
-            <div class="index-slide" id="s_four">
-                <h1>设计师</h1>
+                </div>
+
+                <!-- 第四页 -->
+                <div class="swiper-slide" id="s_four">
+                    <h1>设计师</h1>
                 <h2>追求用户体验的极致</h2>
                 <div class="part_list" id="design_special">
                     <ul>
@@ -107,10 +110,11 @@
                     </ul>
                 </div>
                 <img src="pic/join_2.png" class="back_pic">
-            </div>
-            <!-- 第五页  -->
-            <div class="index-slide" id="s_five">
-                <h1>媒体人</h1>
+                </div>
+
+                <!-- 第五页 -->
+                <div class="swiper-slide" id="s_five">
+                    <h1>媒体人</h1>
                 <h2>掉入脑洞的艺术总是光芒万丈</h2>
                 <div class="part_list" id="media_special">
                     <ul>
@@ -119,10 +123,11 @@
                     </ul>
                 </div>
                 <img src="pic/join_3.png" class="back_pic">
-            </div>
-            <!-- 第六页 -->
-            <div class="index-slide" id="s_seven">
-                <h1>市场人</h1>
+                </div>
+
+                <!-- 第六页 -->
+                <div class="swiper-slide" id="s_seven">
+                    <h1>市场人</h1>
                 <h2>千方百计让你爱上我们的产品</h2>
                 <div class="part_list" id="market_spcial">
                     <ul>
@@ -131,62 +136,17 @@
                     </ul>
                 </div>
                 <img src="pic/join_4.png" class="back_pic">
-            </div>
-            <!-- 第七页 -->
-            <div class="index-slide" id="s_six">
-                <h1>你能看到怎样的精彩世界</h1>
-                <a href="#submit" id="tojoin">立即加入</a>
-                <p><a id="more">更多信息</a></p>
-            </div>
-            <aside class="sidebar">
-                <div class="sidebar-bg"></div>
-                <div class="sidebar-wrapper">
-                    <div class="morething">
-                        <p><a href="http://www.eeyes.net/">e瞳官网</a></p>
-                        <p><a >e瞳公众号</a><span id="num">微信搜索：xjtueeyes</span></p>
-                        <p>e瞳新生群<br><span id="num">657813400</span></p>
-                    </div>
                 </div>
-            </aside>
+
+                <!-- 第七页 -->
+                <div class="swiper-slide" id="s_six">
+                    <h1>你能看到怎样的精彩世界</h1>
+                <a href="#submit" id="tojoin">立即加入</a>
+                <p><a id="more" href="http://eeyes.net">更多信息</a></p>
+                </div>
+            </div>
         </div>
-        <script type="text/javascript">
-        //设置每一部分的高度
-        var a = $(window).height() + "px";
-        var a_pic = $(window).height()*0.5 + "px";
-        var b = $(window).width() + "px";
-        $(".index-slide").css("height",a);
-        //设置字体颜色
-        $(".part_list ul li a").css({"color":"#fff","font-weight":400});
-        $(".back_pic").css({"width":b});
-        //侧边栏
-        var sidebar = $(".sidebar");
-
-        function showSidebar(){
-            sidebar.show();
-            setTimeout(function () {
-            sidebar.addClass('active');
-            }, 0);
-        }
-
-        function hideSidebar(){
-            sidebar.removeClass("active");
-            setTimeout(function () {
-            if (!sidebar.hasClass('active')) {
-                sidebar.hide();
-                }
-            }, 500);
-        }
-
-        $('#more').click(function () {
-            showSidebar();
-        });
-        $('.sidebar-bg').click(function () {
-            hideSidebar();
-        });
-
-         $(".morething p a").css("color","#fff");
-         $(".morething p a").css("font-weight",300);
-        </script>
+    </div>
     </div>
     
     <!-- 引入次级页面样式 -->
