@@ -80,7 +80,7 @@ html, body, #pagenav{
     bottom: 0;
     left: 0;
 }
-h1{
+.title_part{
     position: absolute;
     top: 3rem;
     left: 3rem;
@@ -277,7 +277,9 @@ h2{
     position: relative;
 }
 #s_six h1{
-    margin-bottom: 11rem;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
     line-height: 5rem;
     font-size: 3rem;
 }
