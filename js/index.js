@@ -6,7 +6,7 @@ $(function(){
     //    $('.page').css({width:GC.w,height:GC.h});
     //    $('.page1 .content').css({width:GC.w,height:GC.h});
     //});
-
+    
     var timeout,isCanMove = false;
     function initDate(){
         //var time = getTime();
@@ -187,6 +187,7 @@ $(function(){
     }
     // 依次显示信息1
     function showMessage(){
+
         var li = $('#wechat_bg .con .content li');
         $('#wechat_bg').removeClass('hidden');
         //li.eq(0).find('.mTime').html(getEarlyTime());

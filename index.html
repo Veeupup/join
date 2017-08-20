@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="./favicon.ico">
     <title>e瞳网2017招新</title>    
     <!-- meta使用viewport以确保页面可自由缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,9 +92,9 @@
                 <h2>代码有几种敲法？</h2>
                 <div class="part_list" id="tech_special">
                     <ul>
-                        <li><a href="#frontend-and-art-o">Web前端&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
-                        <li><a href="#backend-o">Web后端&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
-                        <li><a href="#backapp-o">App开发&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#frontend-and-art-o" class="list_one">Web前端&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#backend-o" class="list_two">Web后端&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#backapp-o" class="list_three">App开发&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
                     </ul>
                 </div>
                 <img src="pic/join_1.png" class="back_pic">
@@ -105,8 +106,8 @@
                 <h2>追求用户体验的极致</h2>
                 <div class="part_list" id="design_special">
                     <ul>
-                        <li><a href="#art-o">视觉设计师&nbsp&nbsp&nbsp  <img src="pic/arrow.png"></a></li>
-                        <li><a href="#product-o">产品设计师&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#art-o" class="list_one">视觉设计师&nbsp&nbsp&nbsp  <img src="pic/arrow.png"></a></li>
+                        <li><a href="#product-o" class="list_two">产品设计师&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
                     </ul>
                 </div>
                 <img src="pic/join_2.png" class="back_pic">
@@ -118,8 +119,8 @@
                 <h2>掉入脑洞的艺术总是光芒万丈</h2>
                 <div class="part_list" id="media_special">
                     <ul>
-                        <li><a href="#newmedia-o">新闻媒体部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
-                        <li><a href="#movie-o">影视部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#newmedia-o" class="list_one">新闻媒体部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#movie-o" class="list_two">影视部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
                     </ul>
                 </div>
                 <img src="pic/join_3.png" class="back_pic">
@@ -131,8 +132,8 @@
                 <h2>千方百计让你爱上我们的产品</h2>
                 <div class="part_list" id="market_spcial">
                     <ul>
-                        <li><a href="#market-o">市场部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
-                        <li><a href="#publicrelation-o">公关部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#market-o" class="list_one">市场部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
+                        <li><a href="#publicrelation-o" class="list_two">公关部&nbsp&nbsp&nbsp<img src="pic/arrow.png"></a></li>
                     </ul>
                 </div>
                 <img src="pic/join_4.png" class="back_pic">
@@ -946,8 +947,8 @@
                 </div>
                 <img src="./images/GongGuan/pic1.png" class="publicrelation_one">
                 <div class="publicrelation_two">
-                    <p>运营西安交大团委公众号</p>
-                    <p>做好校团委的宣传平台</p>                   
+                    <p>运营西安钱院公众号</p>
+                    <p>做好钱学森书院的宣传平台</p>                   
                 </div>
                 <img src="./images/GongGuan/pic2.png" class="publicrelation_two">
             </div>
@@ -1173,7 +1174,7 @@
         }
         return TimeLine;
     }
-    lrc_t.add(wordsmove([3570, 6370, 9000, 12230, 15610, 18260, 19740, 22230, 24120, 26410, 29550, 31350, 33260, 36380, 39010, 41610, 44350, 49300, 51050, 53260, 56440,  58110,  65430,  68150, 70750], 1000));
+    lrc_t.add(wordsmove([4570, 7370, 10000, 13230, 16610, 17260, 18740, 23230, 25120, 27410, 30550, 32350, 34260, 37380, 40010, 42610, 45350, 50300, 52050, 54260, 57440,  59110,  66430,  69150, 71750], 1000));
 
 
         </script>
@@ -1574,13 +1575,6 @@
             $(document).ready(function(){
                 $("a[href='#product']").on('click',function(){
                     $('#product img[remark]').attr('src',function(){return $(this).attr('remark')});
-                });
-                $("#chanpin_back").click(function(){
-                    alert("a");
-                    alert($('#tips_audio')[0].src);
-                    $('#tips_audio')[0].pause();
-                    // $('.page1 .unlock')[0].src = "";
-                    // $('.page1 .taps')[0].src = "";
                 });
             })
         </script>
@@ -2028,15 +2022,43 @@
 
         // 验证输入数据
         function validate(jQueryObject, regexp, errmsg, strict) {
-            var val = jQueryObject.val();
-            if (regexp.test(val) || (!strict && val == "")) {
+            var m = jQueryObject.val();
+            if (jQueryObject == $('form textarea[name="info"]')) {
+                m = checkenter(m);
+            }
+            if (regexp.test(m) || (!strict && m == "")) {
                 return "";
             }
             jQueryObject.addClass("invalid");
             return errmsg + "\n";
         }
+        // //把最后表单里面的回车验证删除
+        function checkenter(mobiles){
+            var i;
+            var result = "";
+            var c;
+            for (i = 0; i < mobiles.length; i++) {
+                c = mobiles.substr(i, 1);
+                if (c == "\n")
+                result = result + "；";
+                else result = result + c ;
+                }
+            return result;
+        }
+        // var content_word = $('form textarea[name="info"]').val();
+        // alert(content_word);
+        // var a = checkenter(content_word);
+        // alert(a);
+        // function word_check(secret){
+        //     var regu = /^.{0,255}$/;
+        //     var re = new regexp(regu);
+        //     if(re.test(secret)){}
+        //         else alert("个人陈述：0-255个汉字/英文字母");
+        // }
+
         function validateAll(strict) {
             $("form .invalid").removeClass("invalid");
+
                 return validate($('form input[name="name"]'), /^.{1,10}$/, "姓名：1-10个汉字/英文字母", strict)
                     + validate($('form input[name="home"]'), /^.{0,40}$/, "籍贯：0-40个汉字/英文字母", strict)
                     + validate($('form input[name="class"]'), /^.{1,20}$/, "专业班级：1-20个汉字/英文字母", strict)
@@ -2051,7 +2073,8 @@
                             return true;
                         }
                     }, "第二志愿必须与第一志愿不同", strict)
-                    + validate($('form textarea[name="info"]'), /^.{0,255}$/, "个人陈述：0-255个汉字/英文字母", strict);
+                    + validate($('form textarea[name="info"]'), /^.{0,255}$/, "个人陈述：0-255个汉字/英文字母", strict)
+                    ;
         }
         $("form").change(function () {
             validateAll(false);
@@ -2084,6 +2107,7 @@
                     alert("提交数据成功,发送邮件失败");
                 } else if (data === '1') {
                     alert("提交成功");
+                    location.href = "ok.html";
                 } else {
                     alert("未知错误");
                 }

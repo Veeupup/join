@@ -49,7 +49,7 @@ html, body, #pagenav{
 /*具体介绍通用*/
 .part_list{
     position: absolute;
-    z-index: 999;
+/*    z-index: 999;*/
     left: 3rem;
     top: 16rem;
 }
@@ -57,13 +57,16 @@ html, body, #pagenav{
     width: 14rem;
 }
 .part_list ul li a{
-    padding: 0.5rem 1.3rem;
+    padding: 0rem 1.3rem;
     font-size: 1.4rem;
     border: 1.6px solid #fff;
     border-radius: 90px;
-    line-height: 4rem;
+    line-height: 3rem;
     font-weight: 400;
+    display: block;
     color: #fff;
+    z-index: 999;
+    position: absolute;
 }
 .part_list ul li{
     width: auto;
@@ -92,6 +95,24 @@ h2{
     position: absolute;
     top: 11rem;
     left: 3rem;
+}
+.list_two{
+    top: 5rem;
+}
+.list_three{
+    top: 10rem;
+}
+#tech_special ul li a {
+    background-color: rgb(232,79,73);
+}
+#design_special ul li a {
+    background-color: #3c99d2;
+}
+#media_special ul li a {
+    background-color:  #7f5597;
+}
+#market_special ul li a {
+    background-color: #f1904b;
 }
 /*第一页*/
 #s_one{
@@ -195,7 +216,7 @@ h2{
     position: relative;
 }
 #s_four h2{
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-bottom: 3rem;
     text-indent: 5px;
     font-weight: 400;
@@ -238,7 +259,7 @@ h2{
     background-color:  #f1904b;
 }
 #market_spcial ul li a{
-    padding: 0.5rem 1.3rem;
+    padding: 0rem 1.3rem;
     font-size: 1.4rem;
     border: 1.6px solid #fff;
     border-radius: 90px;

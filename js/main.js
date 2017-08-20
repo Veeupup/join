@@ -3,32 +3,8 @@ $(document).ready(function(){
     var b = $(window).width() + "px";
     $(".swiper-slide").css("height",a);
     $(".back_pic").css("width",b);
+    $(".part_list ul li a").css("color","#fff");
 
-    //侧边栏
-        var sidebar = $(".sidebar");
-
-        function showSidebar(){
-            sidebar.show();
-            setTimeout(function () {
-            sidebar.addClass('active');
-            }, 0);
-        }
-
-        function hideSidebar(){
-            sidebar.removeClass("active");
-            setTimeout(function () {
-            if (!sidebar.hasClass('active')) {
-                sidebar.hide();
-                }
-            }, 500);
-        }
-
-        $('#more').click(function () {
-            showSidebar();
-        });
-        $('.sidebar-bg').click(function () {
-            hideSidebar();
-        });
     // build the swiper 
     var swiper = new Swiper('.swiper-container',{
         direction: 'vertical',
