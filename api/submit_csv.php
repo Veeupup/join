@@ -2,10 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: Cantjie
- * Date: 2017-8-21
- * Time: 11:52
+ * Date: 2017-8-19
+ * Time: 22:38
  */
-
 //读取配置文件
 require 'config.php';
 //套用现成代码，获取ip，不合法返回false
@@ -51,7 +50,7 @@ if(file_exists(IP_FILE)){
 //判断是否已存在
 if(isset($ip[$client_ip])){
     //同一ip提交达到15次就退出
-    if($ip[$client_ip]>=150){
+    if($ip[$client_ip]>=15){
         exit('-2');
     }
     ++$ip[$client_ip];
@@ -158,7 +157,7 @@ $date = I('date','s','data_filter','-3');
 $class = I('class','s','/^.{1,20}$/u');
 //$home = I('home','s','/^.{0,40}$/u');
 $college = I('college','d','/^[0-8]$/');
-$tel = I('tel','s','/^(1((3\d)|(4[579])|(5[012356789])|(7[01235678])|(8\d))\d{8})$/','-4');
+$tel = I('tel','d','/^(1((3\d)|(4[579])|(5[012356789])|(7[01235678])|(8\d))\d{8})$/','-4');
 $qq = I('qq','s','/^[1-9]\d{4,10}/','-5');
 //$mail = I('mail','s','mail_filter','-6');
 $first = I('first','d','/^[1-9]$/');
@@ -226,25 +225,29 @@ function get_location_by_ip($ip){
     }
     return '';
 }
-$location = get_location_by_ip($client_ip);
 
-class MyDB extends SQLite3
-{
-    function __construct()
-    {
-        $this->open(DB_FILE);
-    }
-}
+//将csv文件写入缓存，这里是新知识，记得给api文件夹权限chmod 777 api -R
+ob_start();
+$f = fopen('php://output','w');
 
-if(!file_exists(DB_FILE)) {
-    $db = new MyDB();
-    $db->exec("CREATE TABLE IF NOT EXISTS ".DB_TABLE." (submit_time STRING,ip STRING,location STRING,`name` STRING, gender STRING, `date` STRING,college STRING,class STRING, tel STRING,qq STRING,`first` STRING, `second` STRING, third STRING, method STRING, info STRING)");
-    $db->close();
+//如果文件不存在，要先把表头写上
+if (!file_exists(DATA_FILE) && false === fputcsv($f,$TABLE_HEADER)){
+    fclose($f);
+    ob_end_clean();
+    exit('-8');
 }
-$db = new MyDB();
-$query =" INSERT INTO ".DB_TABLE." VALUES ('{$time}','{$client_ip}','{$location}','{$name}','{$gender}','{$date}','{$college}','{$class}','{$tel}','{$qq}','{$first}','{$second}','{$third}','{$method}','{$info}')";
-$db->exec($query);
-$db->close();
+//追加数据
+$content = array($time,$client_ip,get_location_by_ip($client_ip),$name,$gender,$date,$college,$class,$tel,$qq,$first,$second,$third,$method,$info);
+if(false === fputcsv($f,$content)){//原本觉得这个array有点长，就改成了一个$content，结果还是很长。
+    fclose($f);
+    ob_end_clean();
+    exit('-8');
+}
+//Excel仅识别GBK编码的csv
+if(false == file_put_contents(DATA_FILE,iconv('utf-8','GBK//IGNORE',ob_get_clean()),FILE_APPEND| LOCK_EX)){
+    exit('-8');
+}
+fclose($f);
 if(isset($MAIL_SERVER)){
     //原本取消，但是还是想写，怎么办，用QQ邮箱吧。
     $maskedname = trim($name).' 同学';

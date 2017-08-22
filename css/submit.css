@@ -1,25 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*表单*/
 #submit #sub-content{
     position: relative;
@@ -159,7 +138,7 @@
 	color: #00bca4 !important;
 }
 /*下拉*/
-#submit #sub-content form table #sub-college-button, #submit #sub-content form table #sub-first-button, #submit #sub-content form table #sub-second-button, #submit #sub-content form table #sub-home-button{
+#submit #sub-content form table #sub-college-button, #submit #sub-content form table #sub-first-button, #submit #sub-content form table #sub-second-button, #submit #sub-content form table #sub-third-button, #submit #sub-content form table #sub-method-button{
 	display: none;
 }
 /*操作提示*/

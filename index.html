@@ -6,12 +6,31 @@
     <title>e瞳网2017招新</title>    
     <!-- meta使用viewport以确保页面可自由缩放 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <!--设置QQ分享的标题图片等-->
+    <meta name="description" itemprop="description" content="你能看到怎样的精彩大学"/>
+    <meta itemprop="name" content="e曈网招新"/>
+    <meta itemprop="image" content="share.png"/>
+    <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/qzact/common/share/share.js"></script>
+    <script type="text/javascript">
+        setShareInfo({
+            title:          'e曈网招新',
+            summary:        '你能看到怎样的精彩大学',
+            pic:            'favicon.icon',
+            url:            'http://join.eeyes.net/index.html',
+            WXconfig:       {
+                swapTitleInWX: true,
+                appId: '',
+                timestamp: '',
+                nonceStr: '',
+                signature: ''
+            }
+        });
+    </script>
+    <div style="display:none;"><img src="share.png"></div>
     <!-- 引入所有样式 -->
     <!-- <link rel="stylesheet" type="text/css" href=""> -->
-
     <!-- 引入 jQuery 库 -->
-    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> 
+    <script src="js/jquery-1.11.3.min.js"></script>
     <!-- <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
     <script type="text/javascript" src="jquery.mobile-1.4.5.min.js"></script> 
     <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.min.css"> -->
@@ -42,9 +61,9 @@
     <!-- 引入通用参数、动画，加载页与第一页动效 -->
     
     <!-- 引入 jQuery Mobile -->
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <!-- <script type="text/javascript" src="jquery.mobile-1.4.5.min.js"></script> -->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"> 
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="jquery.mobile-1.4.5.min.css"> -->
 
         <!-- 引入swiper -->
@@ -1777,32 +1796,33 @@
                     <tbody>
                         <tr>
                             <td>
-                                <div><input type="text" name="name" id="sub-name" /></div>
                                 <label for="sub-name">姓名 YOURNAME</label>
+                                <div><input type="text" name="name" id="sub-name" /></div>
                             </td>
-                            <td>                            
-                                <div class="gender" id="sub-gender">    
+                            <td>
+                                <label for="sub-gender">性别 GENDER</label>
+                                <div class="gender" id="sub-gender">
                                     <label class="checked">男</label>
                                     <label>女</label>
                                     <input type="radio" name="gender" class="man" value="1" checked />
                                     <input type="radio" name="gender" class="woman" value="0" />
                                     <div style="clear: both;"></div>
                                 </div>
-                                <label for="sub-gender">性别 GENDER</label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <input type="text" name="date" id="sub-Birth" value="1998-01-01" />
                                 <label for="sub-Birth">出生日期 BIRTHDAY</label>
+                                <input type="text" name="date" id="sub-Birth" value="1998-01-01" />
                             </td>
                             <td>
-                                <select name="home" id="sub-home"></select>
-                                <label for="sub-home">籍贯 PLACE OF BIRTH</label>
+                                <label for="sub-tel">手机号码 CELLPHONE</label>
+                                <input type="text" name="tel" id="sub-tel" placeholder="用于收取面试通知" />
                             </td>
                         </tr>
                         <tr>
                             <td>
+                                <label for="sub-college">书院 COLLEGE</label>
                                 <select name="college" id="sub-college">
                                     <option value="0">彭康书院</option>
                                     <option value="1">仲英书院</option>
@@ -1814,33 +1834,21 @@
                                     <option value="7">启德书院</option>
                                     <option value="8">钱学森书院</option>
                                 </select>
-                                <label for="sub-college">书院 COLLEGE</label>
                             </td>
                             <td>
-                                <input type="text" name="class" id="sub-class" placeholder="如:电信71" />
                                 <label for="sub-class">专业班级 CLASS</label>
+                                <input type="text" name="class" id="sub-class" placeholder="如:电信71" />
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="text" name="tel" id="sub-tel" placeholder="面试通知将以短信的方式发送" />
-                                <label for="sub-tel">手机号码 CELLPHONE NUMBER</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <input type="text" name="qq" id="sub-qq" />
                                 <label for="sub-qq">QQ号 QQ NUMBER</label>
+                                <input type="text" name="qq" id="sub-qq" />
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <input type="text" name="mail" id="sub-email" placeholder="提交成功可收到邮件确认" />
-                                <label for="sub-email">电子邮箱 E-MAIL ADDRESS</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                                <label for="sub-first">第一志愿 FIRST</label>
                                 <select name="first" id="sub-first">
                                     <option value="1">新闻媒体部</option>
                                     <option value="2" selected>影视部</option>
@@ -1852,13 +1860,15 @@
                                     <option value="8">web后端组</option>
                                     <option value="9">设计组</option>
                                 </select>
-                                <label for="sub-first">第一志愿 FIRST</label>
                             </td>
-                            <td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label for="sub-second">第二志愿 SECOND</label>
                                 <select name="second" id="sub-second">
                                     <option value="0" selected>未选</option>      
                                     <option value="1">新闻媒体部</option>
-                                    <option value="2" >影视部</option>
+                                    <option value="2">影视部</option>
                                     <option value="3">市场部</option>
                                     <option value="4">公关部</option>
                                     <option value="5">产品组</option>
@@ -1867,14 +1877,41 @@
                                     <option value="8">web后端组</option>
                                     <option value="9">设计组</option>
                                 </select>
-                                <label for="sub-second">第二志愿 SECOND</label>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="2">
+                                <label for="sub-third">第三志愿 THIRD</label>
+                                <select name="third" id="sub-third">
+                                    <option value="0" selected>未选</option>
+                                    <option value="1">新闻媒体部</option>
+                                    <option value="2">影视部</option>
+                                    <option value="3">市场部</option>
+                                    <option value="4">公关部</option>
+                                    <option value="5">产品组</option>
+                                    <option value="6">app组</option>
+                                    <option value="7">web前端组</option>
+                                    <option value="8">web后端组</option>
+                                    <option value="9">设计组</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label for="sub-method">了解途径 METHOD</label>
+                                <select name="method" id="sub-method">
+                                    <option value="0">各类新生群</option>
+                                    <option value="1">e曈线下宣传</option>
+                                    <option value="2">熟人宣传介绍</option>
+                                    <option value="3" selected>其他</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <label for="sub-info">个人陈述 WANNA SAY</label>
                                 <textarea name="info" id="sub-info" maxlength="255" placeholder="(选填)你有什么话要对我们说...(咱就别用emoji卖萌了，小瞳的服务器会受不了的[害羞])"></textarea>
                                 <span id="sub-tip"></span>
-                                <label for="sub-info">个人陈述 WANNA SAY</label>
                             </td>
                         </tr>
                     </tbody>
@@ -1899,7 +1936,7 @@
         })
 
         // 普通选择器
-        $("form #sub-college, form #sub-first, form #sub-second").mobiscroll().select({
+        $("form #sub-college, form #sub-first, form #sub-second, form #sub-third, form #sub-method").mobiscroll().select({
             theme: 'android-holo-light',
             lang: 'zh',
             display: 'modal',
@@ -1914,78 +1951,7 @@
             }
         });
 
-        var districts = {
-            "北京市":["东城区","西城区","朝阳区","丰台区","石景山区","海淀区","门头沟区","房山区","通州区","顺义区","昌平区","大兴区","怀柔区","平谷区","密云区","延庆区","其他"],
-            "天津市":["和平区","河东区","河西区","南开区","河北区","红桥区","东丽区","西青区","津南区","北辰区","武清区","宝坻区","滨海新区","宁河区","静海区","蓟县","天津市郊县","其他"],
-            "河北省":["石家庄市","唐山市","秦皇岛市","邯郸市","邢台市","保定市","张家口市","承德市","沧州市","廊坊市","衡水市","其他"],
-            "山西省":["太原市","大同市","阳泉市","长治市","晋城市","朔州市","晋中市","运城市","忻州市","临汾市","吕梁市","其他"],
-            "内蒙古自治区":["呼和浩特市","包头市","乌海市","赤峰市","通辽市","鄂尔多斯市","呼伦贝尔市","巴彦淖尔市","乌兰察布市","兴安盟","锡林郭勒盟","阿拉善盟","其他"],
-            "辽宁省":["沈阳市","大连市","鞍山市","抚顺市","本溪市","丹东市","锦州市","营口市","阜新市","辽阳市","盘锦市","铁岭市","朝阳市","葫芦岛市","其他"],
-            "吉林省":["长春市","吉林市","四平市","辽源市","通化市","白山市","松原市","白城市","延边朝鲜族自治州","其他"],
-            "黑龙江省":["哈尔滨市","齐齐哈尔市","鸡西市","鹤岗市","双鸭山市","大庆市","伊春市","佳木斯市","七台河市","牡丹江市","黑河市","绥化市","大兴安岭地区","其他"],
-            "上海市":["黄浦区","徐汇区","长宁区","静安区","普陀区","虹口区","杨浦区","闵行区","宝山区","嘉定区","浦东新区","金山区","松江区","青浦区","奉贤区","崇明县","上海市郊县","其他"],
-            "江苏省":["南京市","无锡市","徐州市","常州市","苏州市","南通市","连云港市","淮安市","盐城市","扬州市","镇江市","泰州市","宿迁市","其他"],
-            "浙江省":["杭州市","宁波市","温州市","嘉兴市","湖州市","绍兴市","金华市","衢州市","舟山市","台州市","丽水市","其他"],
-            "安徽省":["合肥市","芜湖市","蚌埠市","淮南市","马鞍山市","淮北市","铜陵市","安庆市","黄山市","滁州市","阜阳市","宿州市","六安市","亳州市","池州市","宣城市","其他"],
-            "福建省":["福州市","厦门市","莆田市","三明市","泉州市","漳州市","南平市","龙岩市","宁德市","其他"],
-            "江西省":["南昌市","景德镇市","萍乡市","九江市","新余市","鹰潭市","赣州市","吉安市","宜春市","抚州市","上饶市","其他"],
-            "山东省":["济南市","青岛市","淄博市","枣庄市","东营市","烟台市","潍坊市","济宁市","泰安市","威海市","日照市","莱芜市","临沂市","德州市","聊城市","滨州市","菏泽市","其他"],
-            "河南省":["郑州市","开封市","洛阳市","平顶山市","安阳市","鹤壁市","新乡市","焦作市","濮阳市","许昌市","漯河市","三门峡市","南阳市","商丘市","信阳市","周口市","驻马店市","济源市","其他"],
-            "湖北省":["武汉市","黄石市","十堰市","宜昌市","襄阳市","鄂州市","荆门市","孝感市","荆州市","黄冈市","咸宁市","随州市","恩施土家族苗族自治州","仙桃市","潜江市","天门市","神农架林区","其他"],
-            "湖南省":["长沙市","株洲市","湘潭市","衡阳市","邵阳市","岳阳市","常德市","张家界市","益阳市","郴州市","永州市","怀化市","娄底市","湘西土家族苗族自治州","其他"],
-            "广东省":["广州市","韶关市","深圳市","珠海市","汕头市","佛山市","江门市","湛江市","茂名市","肇庆市","惠州市","梅州市","汕尾市","河源市","阳江市","清远市","东莞市","中山市","潮州市","揭阳市","云浮市","其他"],
-            "广西壮族自治区":["南宁市","柳州市","桂林市","梧州市","北海市","防城港市","钦州市","贵港市","玉林市","百色市","贺州市","河池市","来宾市","崇左市","其他"],
-            "海南省":["海口市","三亚市","三沙市","儋州市","五指山市","琼海市","文昌市","万宁市","东方市","定安县","屯昌县","澄迈县","临高县","白沙黎族自治县","昌江黎族自治县","乐东黎族自治县","陵水黎族自治县","保亭黎族苗族自治县","琼中黎族苗族自治县","其他"],
-            "重庆市":["万州区","涪陵区","渝中区","大渡口区","江北区","沙坪坝区","九龙坡区","南岸区","北碚区","綦江区","大足区","渝北区","巴南区","黔江区","长寿区","江津区","合川区","永川区","南川区","璧山区","铜梁区","潼南区","荣昌区","梁平县","城口县","丰都县","垫江县","武隆县","忠县","开县","云阳县","奉节县","巫山县","巫溪县","石柱土家族自治县","秀山土家族苗族自治县","酉阳土家族苗族自治县","彭水苗族土家族自治县","重庆市郊县","其他"],
-            "四川省":["成都市","自贡市","攀枝花市","泸州市","德阳市","绵阳市","广元市","遂宁市","内江市","乐山市","南充市","眉山市","宜宾市","广安市","达州市","雅安市","巴中市","资阳市","阿坝藏族羌族自治州","甘孜藏族自治州","凉山彝族自治州","其他"],
-            "贵州省":["贵阳市","六盘水市","遵义市","安顺市","毕节市","铜仁市","黔西南布依族苗族自治州","黔东南苗族侗族自治州","黔南布依族苗族自治州","其他"],
-            "云南省":["昆明市","曲靖市","玉溪市","保山市","昭通市","丽江市","普洱市","临沧市","楚雄彝族自治州","红河哈尼族彝族自治州","文山壮族苗族自治州","西双版纳傣族自治州","大理白族自治州","德宏傣族景颇族自治州","怒江傈僳族自治州","迪庆藏族自治州","其他"],
-            "西藏":["拉萨市","日喀则市","昌都市","林芝市","山南地区","那曲地区","阿里地区","其他"],
-            "陕西省":["西安市","铜川市","宝鸡市","咸阳市","渭南市","延安市","汉中市","榆林市","安康市","商洛市","其他"],
-            "甘肃省":["兰州市","嘉峪关市","金昌市","白银市","天水市","武威市","张掖市","平凉市","酒泉市","庆阳市","定西市","陇南市","临夏回族自治州","甘南藏族自治州","其他"],
-            "青海省":["西宁市","海东市","海北藏族自治州","黄南藏族自治州","海南藏族自治州","果洛藏族自治州","玉树藏族自治州","海西蒙古族藏族自治州","其他"],
-            "宁夏":["银川市","石嘴山市","吴忠市","固原市","中卫市","其他"],
-            "新疆":["乌鲁木齐市","克拉玛依市","吐鲁番市","哈密地区","昌吉回族自治州","博尔塔拉蒙古自治州","巴音郭楞蒙古自治州","阿克苏地区","克孜勒苏柯尔克孜自治州","喀什地区","和田地区","伊犁哈萨克自治州","塔城地区","阿勒泰地区","石河子市","阿拉尔市","图木舒克市","五家渠市","北屯市","铁门关市","双河市","可克达拉市","其他"],
-            "台湾省":["台北市","新北市","桃园市","台中市","台南市","高雄市","基隆市","新竹市","嘉义市","新竹县","苗栗县","彰化县","南投县","云林县","嘉义县","屏东县","宜兰县","花莲县","台东县","澎湖县","其他"],
-            "香港":["中西区","湾仔区","东区","南区","油尖旺区","深水埗区","九龙城区","黄大仙区","观塘区","荃湾区","屯门区","元朗区","北区","大埔区","西贡区","沙田区","葵青区","离岛区","其他"],
-            "澳门":["花地玛堂区","花王堂区","望德堂区","大堂区","风顺堂区","嘉模堂区","路凼填海区","圣方济各堂区","其他"],
-                "其他":["其他"]
-            };
-            var arr = [];
-            for (var i in districts) {
-                arr.push('<optgroup label="' + i + '">');
-                for (var j in districts[i]) {
-                    if (i == "陕西省" && j == 0) {
-                        arr.push('<option value="' + i + " " + districts[i][j] + '" selected>' + districts[i][j] + '</option>');
-                    } else {
-                        arr.push('<option value="' + i + " " + districts[i][j] + '">' + districts[i][j] + '</option>');
-                    }
-                }
-                arr.push('</optgroup>');
-            }
-            // 地点选择器
-            var txt;       
-            $('form select[name="home"]').html(arr.join("")).mobiscroll().select({
-                theme: 'android-holo-light',
-                lang: "zh",
-                display: 'modal',
-                animate: 'fade',
-                buttons: ['set'],
-                rows: 9,
-                group: true,
-                fixedWidth: [130, 130],
-                headerText: function (valueText) { 
-                    txt = $('.dwwr .dwcc .dwwl1 div[aria-selected="true"]').attr("data-val");
-                    if(txt == undefined){
-                        txt = "陕西省 西安市";
-                    }
-                    return txt;
-                },
-                onSelect: function(){
-                    $("form #sub-home_dummy").val(txt);
-                }
-            });
-            $("form #sub-home_dummy").val("陕西省 西安市");
+
 
         // 日历选择器
         $("form #sub-Birth").mobiscroll().date({  
@@ -2010,81 +1976,58 @@
         });
 
         // 个人陈述字数提醒
-        var sub_words = 0;
-        var sub_tip = $("form #sub-tip");
-        var sub_txtarea = $('form textarea')
-        sub_tip.html(sub_words + "/255");
-        sub_txtarea.bind('input propertychange', function() {  
-                console.log("1");
-                sub_words = sub_txtarea.val().length;
-                sub_tip.html(sub_words + "/255");
-        });
+//        var sub_words = 0;
+//        var sub_tip = $("form #sub-tip");
+//        var sub_txtarea = $('form textarea')
+//        sub_tip.html(sub_words + "/255");
+//        sub_txtarea.bind('input propertychange', function() {
+//                console.log("1");
+//                sub_words = sub_txtarea.val().length;
+//                sub_tip.html(sub_words + "/255");
+//        });
 
         // 验证输入数据
-        function validate(jQueryObject, regexp, errmsg, strict) {
-            var m = jQueryObject.val();
-            if (jQueryObject == $('form textarea[name="info"]')) {
-                m = checkenter(m);
-            }
-            if (regexp.test(m) || (!strict && m == "")) {
-                return "";
-            }
-            jQueryObject.addClass("invalid");
-            return errmsg + "\n";
-        }
-        // //把最后表单里面的回车验证删除
-        function checkenter(mobiles){
-            var i;
-            var result = "";
-            var c;
-            for (i = 0; i < mobiles.length; i++) {
-                c = mobiles.substr(i, 1);
-                if (c == "\n")
-                result = result + "；";
-                else result = result + c ;
-                }
-            return result;
-        }
-        // var content_word = $('form textarea[name="info"]').val();
-        // alert(content_word);
-        // var a = checkenter(content_word);
-        // alert(a);
-        // function word_check(secret){
-        //     var regu = /^.{0,255}$/;
-        //     var re = new regexp(regu);
-        //     if(re.test(secret)){}
-        //         else alert("个人陈述：0-255个汉字/英文字母");
-        // }
+//        function validate(jQueryObject, regexp, errmsg, strict) {
+//            var m = jQueryObject.val();
+//            if (jQueryObject == $('form textarea[name="info"]')) {
+//                m = checkenter(m);
+//            }
+//            if (regexp.test(m) || (!strict && m == "")) {
+//                return "";
+//            }
+//            jQueryObject.addClass("invalid");
+//            return errmsg + "\n";
+//        }
 
-        function validateAll(strict) {
-            $("form .invalid").removeClass("invalid");
-
-                return validate($('form input[name="name"]'), /^.{1,10}$/, "姓名：1-10个汉字/英文字母", strict)
-                    + validate($('form input[name="home"]'), /^.{0,40}$/, "籍贯：0-40个汉字/英文字母", strict)
-                    + validate($('form input[name="class"]'), /^.{1,20}$/, "专业班级：1-20个汉字/英文字母", strict)
-                    + validate($('form input[name="tel"]'), /^(1((3\d)|(4[579])|(5[012356789])|(7[01235678])|(8\d))\d{8})$/, "手机号段不存在", strict)
-                    + validate($('form input[name="qq"]'), /^[1-9]\d{4,10}$/, "QQ号格式不正确", strict)
-                    + validate($('form input[name="mail"]'), /^.+?@.+\..+?$/, "邮箱格式不正确", strict)
-                    + validate($('form select[name="second"]'), {
-                        test: function (val) {
-                            if (val === $('form select[name="first"]').val()) {
-                                return false;
-                            }
-                            return true;
-                        }
-                    }, "第二志愿必须与第一志愿不同", strict)
-                    + validate($('form textarea[name="info"]'), /^.{0,255}$/, "个人陈述：0-255个汉字/英文字母", strict)
-                    ;
-        }
-        $("form").change(function () {
-            validateAll(false);
-        })
+//        function validateAll(strict) {
+//            $("form .invalid").removeClass("invalid");
+//
+//                return validate($('form input[name="name"]'), /^.{1,10}$/, "姓名：1-10个汉字/英文字母", strict)
+//                    + validate($('form input[name="home"]'), /^.{0,40}$/, "籍贯：0-40个汉字/英文字母", strict)
+//                    + validate($('form input[name="class"]'), /^.{1,20}$/, "专业班级：1-20个汉字/英文字母", strict)
+//                    + validate($('form input[name="tel"]'), /^(1((3\d)|(4[579])|(5[012356789])|(7[01235678])|(8\d))\d{8})$/, "手机号段不存在", strict)
+//                    + validate($('form input[name="qq"]'), /^[1-9]\d{4,10}$/, "QQ号格式不正确", strict)
+//                    + validate($('form input[name="mail"]'), /^.+?@.+\..+?$/, "邮箱格式不正确", strict)
+//                    + validate($('form select[name="second"]'), {
+//                        test: function (val) {
+//                            if (val === $('form select[name="first"]').val()) {
+//                                return false;
+//                            }
+//                            return true;
+//                        }
+//                    }, "第二志愿必须与第一志愿不同", strict)
+//                    + validate($('form textarea[name="info"]'), /^.{0,255}$/, "个人陈述：0-255个汉字/英文字母", strict)
+//                    ;
+//        }
+//        $("form").change(function () {
+//            validateAll(false);
+//        })
         $("form").submit(function () {
-            var result = validateAll(true);
-            if (result !== "") {
-                alert(result);
-                return false;
-            }
+//            var result = validateAll(true);
+//            if (result !== "") {
+//                alert(result);
+//                return false;
+//            }
             // 暂时禁用按钮
             $('form>div').addClass("submitting").attr("disabled", true);
             var timeoutId = setTimeout(function () {
@@ -2095,21 +2038,29 @@
             $.post($(this).attr("action"), $(this).serialize(), function (data) {
                 clearTimeout(timeoutId);
                 $('form>div').removeClass("submitting").attr("disabled", "");
-                if (data === '-1') {
+                if (data === '0'){
+                 alert("在本不该出错的地方出错了，是不是有地方没填？\n或者刷新下试试？也可以加入e瞳新生群657813400询问")
+                } else if (data === '-1') {
                     alert("获取IP失败");
                 } else if (data === '-2') {
                     alert("同一IP多次提交\n有问题可以加e瞳新生群657813400询问\n(可能是我们后台web组的同学数据验证做得太狠，不小心误伤了)");
                 } else if (data === '-3') {
-                    alert("数据不合理\n如果数据的确无误，可以请加e瞳新生群657813400询问\n(可能是我们后台web组的同学数据验证做得太狠，不小心误伤了)");
+                    alert('生日是不是填错了？');
                 } else if (data === '-4') {
-                    alert("提交数据失败");
+                    alert('手机号不对哦！');
                 } else if (data === '-5') {
-                    alert("提交数据成功,发送邮件失败");
-                } else if (data === '1') {
-                    alert("提交成功");
+                    alert('QQ填的对嘛？是不是有点长或者有点短啊？');
+                } else if (data === '-7') {
+                    alert('部门选择不要重复嘛，不想选就填未选好了');
+                } else if (data === '-8') {
+                    alert('提交失败，可能是服务器出问题了。\n有问题可以加e瞳新生群657813400询问');
+                } else if( data === '1'){
+                    alert('提交成功！')
                     location.href = "ok.html";
+//                    window.href('ok.html')
                 } else {
-                    alert("未知错误");
+                    alert("未知错误\n有问题可以加e瞳新生群657813400询问");
+                   alert(data);
                 }
                 return false;
             });
