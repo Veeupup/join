@@ -51,7 +51,7 @@ if(file_exists(IP_FILE)){
 //判断是否已存在
 if(isset($ip[$client_ip])){
     //同一ip提交达到15次就退出
-    if($ip[$client_ip]>=150){
+    if($ip[$client_ip]>=15){
         exit('-2');
     }
     ++$ip[$client_ip];
